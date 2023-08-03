@@ -33,7 +33,9 @@ const App = () => {
 
   const exportExcelFile = () => {
     const workbook = new ExcelJS.Workbook();
-    const sheet = workbook.addWorksheet("My Sheet");
+    const sheet = workbook.addWorksheet("My Sheet", {
+      views: [{ state: "frozen", xSplit: 1, ySplit: 1 }],
+    });
     sheet.properties.defaultRowHeight = 80;
 
     sheet.getRow(1).border = {
